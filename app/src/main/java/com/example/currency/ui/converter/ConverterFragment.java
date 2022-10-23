@@ -46,8 +46,6 @@ public class ConverterFragment extends Fragment {
     Button chooseCurrencyBt;
     String currentCurrency = "";
 
-
-
     private FragmentConverterBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -101,7 +101,7 @@ public class Helpers {
             InputStream is = null;
 
             try {
-                is = am.open("flags/null.png");
+                is = am.open("flags/noimg.png");
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

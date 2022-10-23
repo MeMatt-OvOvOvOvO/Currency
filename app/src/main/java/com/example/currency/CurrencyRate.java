@@ -85,12 +85,3 @@ public class CurrencyRate {
         this.targetCode = targetCode;
     }
 }
-
-//        Helpers.getRates(code, targetCode, new dOER() {
-//            @Override
-//            public void doJob(ExchangeRate rate) {
-//                amount = rate.getConversionRate();
-//                //Log.i("xxx", String.valueOf(amount));
-//                amount_rate = "lol";
-//            }
-//        });

@@ -8,6 +8,6 @@
 
     <item
         android:id="@+id/navigation_graphs"
-        android:icon="@drawable/ic_graps"
+        android:icon="@drawable/graph1"
         android:title="@string/title_graphs" />
 </menu>

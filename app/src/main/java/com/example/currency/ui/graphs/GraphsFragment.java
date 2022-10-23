@@ -23,6 +23,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -59,7 +60,7 @@ public class GraphsFragment extends Fragment {
 
     Button base_button;
     Button target_button;
-
+    Integer mynum = 1;
     TextView one_week_tv;
     TextView one_month_tv;
     TextView one_year_tv;
@@ -183,6 +184,16 @@ public class GraphsFragment extends Fragment {
                 getData();
                 return true;
             }
+            case R.id.changeTheme:{
+                Log.d("TAG", "onOptionsItemSelected: "+ mynum);
+                if (mynum == 1){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    mynum +=1;
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    mynum -=1;
+                }
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -253,7 +264,7 @@ public class GraphsFragment extends Fragment {
 
         BarDataSet dataSet = new BarDataSet(entries, currentBaseCode + " to " + currentTargetCode);
         //dataSet.setDrawCircles(false);
-        dataSet.setColor(Color.parseColor("#ff0000"));
+        dataSet.setColor(Color.parseColor("#803954"));
 
         BarData lineData = new BarData(dataSet);
         chart.setData(lineData);
@@ -279,7 +290,7 @@ public class GraphsFragment extends Fragment {
 
         LineDataSet dataSet = new LineDataSet(entries, currentBaseCode + " to " + currentTargetCode);
         dataSet.setDrawCircles(false);
-        dataSet.setColor(Color.parseColor("#ff0000"));
+        dataSet.setColor(Color.parseColor("#803954"));
         //dataSet.setValueTextColor();
 
         LineData lineData = new LineData(dataSet);
