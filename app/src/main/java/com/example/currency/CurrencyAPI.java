@@ -1,113 +1,26 @@
-
 package com.example.currency;
 
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-import java.util.HashMap;
+public interface CurrencyAPI {
 
 
-public class CurrencyAPI {
+    @GET("symbols")
+    Call<Symbols> getCurrencies();
 
-    @SerializedName("result")
-    @Expose
-    private String result;
-    @SerializedName("documentation")
-    @Expose
-    private String documentation;
-    @SerializedName("terms_of_use")
-    @Expose
-    private String termsOfUse;
-    @SerializedName("time_last_update_unix")
-    @Expose
-    private Integer timeLastUpdateUnix;
-    @SerializedName("time_last_update_utc")
-    @Expose
-    private String timeLastUpdateUtc;
-    @SerializedName("time_next_update_unix")
-    @Expose
-    private Integer timeNextUpdateUnix;
-    @SerializedName("time_next_update_utc")
-    @Expose
-    private String timeNextUpdateUtc;
-    @SerializedName("base_code")
-    @Expose
-    private String baseCode;
-    @SerializedName("conversion_rates")
-    @Expose
-    private HashMap<String, Double> conversionRates;
+    @GET("latest&base=USD")
+    Call<USDCurrencies> getAllUSDRates();
 
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public String getDocumentation() {
-        return documentation;
-    }
-
-    public void setDocumentation(String documentation) {
-        this.documentation = documentation;
-    }
-
-    public String getTermsOfUse() {
-        return termsOfUse;
-    }
-
-    public void setTermsOfUse(String termsOfUse) {
-        this.termsOfUse = termsOfUse;
-    }
-
-    public Integer getTimeLastUpdateUnix() {
-        return timeLastUpdateUnix;
-    }
-
-    public void setTimeLastUpdateUnix(Integer timeLastUpdateUnix) {
-        this.timeLastUpdateUnix = timeLastUpdateUnix;
-    }
-
-    public String getTimeLastUpdateUtc() {
-        return timeLastUpdateUtc;
-    }
-
-    public void setTimeLastUpdateUtc(String timeLastUpdateUtc) {
-        this.timeLastUpdateUtc = timeLastUpdateUtc;
-    }
-
-    public Integer getTimeNextUpdateUnix() {
-        return timeNextUpdateUnix;
-    }
-
-    public void setTimeNextUpdateUnix(Integer timeNextUpdateUnix) {
-        this.timeNextUpdateUnix = timeNextUpdateUnix;
-    }
-
-    public String getTimeNextUpdateUtc() {
-        return timeNextUpdateUtc;
-    }
-
-    public void setTimeNextUpdateUtc(String timeNextUpdateUtc) {
-        this.timeNextUpdateUtc = timeNextUpdateUtc;
-    }
-
-    public String getBaseCode() {
-        return baseCode;
-    }
-
-    public void setBaseCode(String baseCode) {
-        this.baseCode = baseCode;
-    }
-
-    public HashMap<String, Double> getConversionRates() {
-        return conversionRates;
-    }
-
-    public void setConversionRates(HashMap<String, Double> conversionRates) {
-        this.conversionRates = conversionRates;
-    }
-
+    @GET("timeseries")
+    Call<TimeSeries> getTimeSeries(
+            @Query("base") String base,
+            @Query("symbols") String symbols,
+            @Query("start_date") String start_date,
+            @Query("end_date") String end_date
+    );
 }
+
+
+

@@ -2,13 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_converter"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:title="@string/title_converter" />
 
     <item
-        android:id="@+id/navigation_chart"
-        android:icon="@drawable/ic_baseline_bar_chart_24"
-        android:title="@string/title_chart" />
-
+        android:id="@+id/navigation_graphs"
+        android:icon="@drawable/ic_graps"
+        android:title="@string/title_graphs" />
 </menu>

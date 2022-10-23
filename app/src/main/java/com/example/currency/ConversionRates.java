@@ -1,10 +1,7 @@
-
 package com.example.currency;
-
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 
 public class ConversionRates {
 
