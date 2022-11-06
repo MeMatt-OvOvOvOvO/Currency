@@ -64,7 +64,7 @@ public class GraphsFragment extends Fragment {
     TextView one_week_tv;
     TextView one_month_tv;
     TextView one_year_tv;
-
+    String colString = "#803954";
     Boolean currentGraphType = true;
     String currentBaseCode = "USD";
     String currentTargetCode = "USD";
@@ -187,9 +187,11 @@ public class GraphsFragment extends Fragment {
             case R.id.changeTheme:{
                 Log.d("TAG", "onOptionsItemSelected: "+ mynum);
                 if (mynum == 1){
+                    colString = "#ffffff";
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     mynum +=1;
                 }else{
+                    colString = "#803954";
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     mynum -=1;
                 }
@@ -264,7 +266,10 @@ public class GraphsFragment extends Fragment {
 
         BarDataSet dataSet = new BarDataSet(entries, currentBaseCode + " to " + currentTargetCode);
         //dataSet.setDrawCircles(false);
-        dataSet.setColor(Color.parseColor("#803954"));
+
+        dataSet.setColor(Color.parseColor(colString));
+
+
 
         BarData lineData = new BarData(dataSet);
         chart.setData(lineData);
@@ -290,7 +295,7 @@ public class GraphsFragment extends Fragment {
 
         LineDataSet dataSet = new LineDataSet(entries, currentBaseCode + " to " + currentTargetCode);
         dataSet.setDrawCircles(false);
-        dataSet.setColor(Color.parseColor("#803954"));
+        dataSet.setColor(Color.parseColor(colString));
         //dataSet.setValueTextColor();
 
         LineData lineData = new LineData(dataSet);
